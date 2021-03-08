@@ -1,0 +1,36 @@
+﻿@{
+    //var recordsPerPage = Model;
+    //var totalRecords = ViewBag.TotalRecords == null ? 0 : ViewBag.TotalRecords;
+    int numberOfButtons = ViewBag.TotalPage;
+}
+<ul class="pagination">
+    @if (ViewBag.CurrentPage > 1)
+    {
+        <li>
+            <a style="border:thick" asp-route-page=@(ViewBag.CurrentPage-1)>Prev</a>
+        </li>
+    }
+
+    @for (int i = 0; i < numberOfButtons; i++)
+    {
+        @if (ViewBag.CurrentPage == i + 1)
+        {
+            <li>
+                <a style="color:mediumvioletred; border:thick" asp-route-page="@(i + 1)">@(i + 1)</a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a style="border:thick" asp-route-page="@(i + 1)">@(i + 1)</a>
+            </li>
+        }
+
+    }
+    @if (ViewBag.CurrentPage < numberOfButtons)
+    {
+        <li>
+            <a style="border:thick" asp-route-page=@(ViewBag.CurrentPage+1)>Next</a>
+        </li>
+    }
+</ul>

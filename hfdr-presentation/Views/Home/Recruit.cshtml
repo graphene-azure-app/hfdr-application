@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Recruits";
+    string[] TableHeaders = new string[] {
+        "Recruit ID",
+        "Applied Date",
+        "First Name",
+        "Middle Name",
+        "Last Name",
+        "ZIP",
+        "Age",
+        "Email",
+        "Actions"
+    };
+
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>The Recruit List</h2>
+
+<div class="table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                @{
+                    foreach(var head in TableHeaders)
+                    {
+                        <th>
+                            @head
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if(Model != null)
+                {
+                    foreach (var Data in Model)
+                    {
+                        <tr>
+                            <td>@Data.id</td>
+                            <td>@Data.APPLIED_DATE</td>
+                            <td>@Data.FIRST_NAME</td>
+                            <td>@Data.MIDDLE_NAME</td>
+                            <td>@Data.LAST_NAME</td>
+                            <td>@Data.ZIP</td>
+                            <td>@Data.AGE</td>
+                            <td>@Data.EMAIL</td>
+                            <td>
+                                <a asp-action="Update" asp-route-id="@Data.id">View/Edit</a>
+                                <a asp-action="Delete" asp-route-id="@Data.id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Create">+ New Recruit</a>
+</div>
+<div>
+    @await Html.PartialAsync("_Pagination")
+</div>

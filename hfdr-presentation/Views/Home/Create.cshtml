@@ -1,0 +1,63 @@
+﻿@model HFDR_Schema.Recruit
+@{
+    ViewData["Title"] = "New Recruit";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <hr />
+
+    <form asp-controller="Home" asp-action="Create" method="post">
+        <div class="row">
+            <div class="col-lg-4">First Name</div>
+            <div class="col-lg-8">
+                <input asp-for="FIRST_NAME" placeholder="First Name" autocomplete="off" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4">Middle Name</div>
+            <div class="col-lg-8">
+                <input asp-for="MIDDLE_NAME" placeholder="Middle Name" autocomplete="off" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4">Last Name</div>
+            <div class="col-lg-8">
+                <input asp-for="LAST_NAME" placeholder="Last Name" autocomplete="off" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4">Zip Code</div>
+            <div class="col-lg-8">
+                <input asp-for="ZIP" placeholder="Zip Code" autocomplete="off" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4">Age</div>
+            <div class="col-lg-8">
+                <input asp-for="AGE" placeholder="Age" autocomplete="off" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4">Email</div>
+            <div class="col-lg-8">
+                <input asp-for="EMAIL" placeholder="Email Address" autocomplete="off" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a asp-action="Recruit">Cancel</a>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
